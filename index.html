@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>一次购物结账引发的用户体验思考</title>
+    <style>
+      body {
+        font-size: 16px;
+        line-height: 1.8em;
+        letter-spacing: 0.1em;
+      }
+
+      pre,
+      code {
+        font-size: 14px;
+        font-family: Roboto, "Courier New", Consolas, Inconsolata, Courier,
+          monospace;
+        margin: auto 5px;
+      }
+
+      code {
+        white-space: pre-wrap;
+        border-radius: 2px;
+        display: inline;
+      }
+
+      pre {
+        font-size: 15px;
+        line-height: 1.4em;
+        display: block !important;
+      }
+
+      pre code {
+        white-space: pre;
+        overflow: auto;
+        border-radius: 3px;
+        padding: 1px 1px;
+        display: block !important;
+      }
+
+      strong,
+      b {
+        color: #bf360c;
+      }
+
+      em,
+      i {
+        color: #333;
+      }
+
+      hr {
+        border: 1px solid #bf360c;
+        margin: 1.5em auto;
+      }
+
+      p {
+        margin: 1.5em 5px !important;
+      }
+
+      table,
+      pre,
+      dl,
+      blockquote,
+      q,
+      ul,
+      ol {
+        margin: 10px 5px;
+      }
+
+      ul,
+      ol {
+        padding-left: 15px;
+      }
+
+      li {
+        margin: 10px;
+      }
+
+      li p {
+        margin: 10px 0 !important;
+      }
+
+      ul ul,
+      ul ol,
+      ol ul,
+      ol ol {
+        margin: 0;
+        padding-left: 10px;
+      }
+
+      ul {
+        list-style-type: circle;
+      }
+
+      dl {
+        padding: 0;
+      }
+
+      dl dt {
+        font-size: 1em;
+        font-weight: bold;
+        font-style: italic;
+      }
+
+      dl dd {
+        margin: 0 0 10px;
+        padding: 0 10px;
+      }
+
+      blockquote,
+      q {
+        border-left: 2px solid #333;
+        padding: 0 10px;
+        color: #777;
+        quotes: none;
+      }
+
+      blockquote::before,
+      blockquote::after,
+      q::before,
+      q::after {
+        content: none;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-style: bold !important;
+        color: #333 !important;
+        margin: 1.5em 5px !important;
+        padding: 0.5em 0 !important;
+      }
+
+      h1 {
+        font-size: 24px !important;
+        border-bottom: 1px solid #ddd !important;
+      }
+
+      h2 {
+        font-size: 20px !important;
+        border-bottom: 1px solid #eee !important;
+      }
+
+      h3 {
+        font-size: 18px;
+      }
+
+      h4 {
+        font-size: 16px;
+      }
+
+      table {
+        padding: 0;
+        border-collapse: collapse;
+        border-spacing: 0;
+        font-size: 1em;
+        font: inherit;
+        border: 0;
+        margin: 0 auto;
+      }
+
+      tbody {
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+
+      table tr {
+        border: 0;
+        border-top: 1px solid #ccc;
+        background-color: white;
+        margin: 0;
+        padding: 0;
+      }
+
+      table tr:nth-child(2n) {
+        background-color: #f8f8f8;
+      }
+
+      table tr th,
+      table tr td {
+        font-size: 16px;
+        border: 1px solid #ccc;
+        margin: 0;
+        padding: 5px 10px;
+      }
+
+      table tr th {
+        font-weight: bold;
+        color: #eee;
+        border: 1px solid #333;
+        background-color: #333;
+      }
+
+      #area > table {
+        width: 100%;
+        table-layout: fixed;
+      }
+
+      #area table tr td {
+        margin: 0;
+        padding: 6px;
+        border: 0;
+      }
+
+      #md-area {
+        width: 100%;
+        height: 600px;
+        font-size: 18px;
+        overflow: hidden;
+        font-weight: bold;
+        outline: none;
+      }
+
+      #show-area {
+        height: 600px;
+        background-color: #fcf6e5;
+      }
+
+      .clearfix:before {
+        content: "";
+        display: table;
+      }
+      img {
+        max-width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>一次购物结账引发的用户体验思考</h1>
+
+    <blockquote>
+      <p>
+        <em
+          >很多时候，我们觉察不到一个软件有多好用，但我们很容易发现一个软件有多难用
+          2021-05-23</em
+        >
+      </p>
+    </blockquote>
+
+    <p>
+      今天去物美购物，事情就发生在结账环节。平时我都是用自助机结账，但是由于自助机用不了支付宝的消费券，所以只能耐着性子去人工通道排队。等候的时候我发现前边有顾客在用多点出示会员信息，于是我也摸出手机，打算学着人家的样子出示会员信息。此刻的我不会想到，几分钟之后我有多尴尬、多狼狈、多上头...
+    </p>
+
+    <p style="text-align: center">
+      <img
+        src="https://github.com/wangyu-0426/blablabla/blob/main/images/20210523-1.jpg?raw=true"
+      />
+    </p>
+
+    <p>
+      其实我对多点APP的印象一直不好，最主要的问题来自于多点的启动速度，可能是我手机里启动最慢的一个app了，尤其是后边很多人望眼欲穿的等着你的时候，真是感觉度秒如年。期初几次自助结账，我都是举着手机在那儿假装镇定，后来干脆手机扔那儿，边等边把商品塞进购物袋，这样可以节省不少时间。可能有细心地同学会问，为什么不提前掏出手机，因为多数时候我都会用购物篮，如果一只手攥着手机另一只手从购物篮里掏东西扫码，效率会极低，之所以不用购物车，是因为用车也得扫码，我嫌麻烦，且浪费时间，所以即使买上十斤米十斤面，我也只使用购物篮。有点跑题了，今天主要吐槽软件的事儿，关于自助结账的问题下次找机会细说吧，也有挺多的槽点...
+    </p>
+
+    <p>
+      此时多点在经历了启动画面、启动广告之后，又弹出了满减的首屏广告，如果此刻我稍微分神的话，我可能已经忘了我接下来要干啥了...
+      对，我要找我的会员码，是一个条形码和二维码组成的页面，我刚刚见过的！随着排队的人群不断往前走，前边挨着我的顾客已经开始结账了，我觉着我得快点儿了。
+    </p>
+
+    <p style="text-align: center">
+      <img
+        src="https://github.com/wangyu-0426/blablabla/blob/main/images/20210523-2.jpg?raw=true"
+      />
+    </p>
+
+    <p>
+      按照以往的经验，这种常用的功能一定会出现在首页比较显眼的位置，通常会在首屏的右上角或左上角。扫视花花绿绿的首页，我觉着这个思路应该是对的，左上角是物美的图标，右上角是扫一扫的图标。因为微信和支付宝都可以在扫一扫的界面直接打开自己的二维码，所以果断点开多点的扫一扫，结果令人失望，多点并没有建立这样一个快速通道...
+    </p>
+
+    <p style="text-align: center">
+      <img
+        src="https://github.com/wangyu-0426/blablabla/blob/main/images/20210523-3.jpg?raw=true"
+      />
+    </p>
+
+    <p>
+      于是我只能失望的返回首页，看到首页右下角有
+      <code>我的</code>
+      按钮，正常来讲这里肯定有！瞟了一眼左上角的物美图标之后，我点进了右下角的
+      <code>我的</code
+      >，事后证明，我的判断其实是对的。只是在当时的使用情境下，我没能找到那个犹抱琵琶的会员码，因为此时前边的顾客已经结完账，收银员已经开始扫我买的东西了，我已经没有时间继续找了。当收银员问我有没有会员的时候，我开始说我的手机号，因为在很多其他超市，都是通过手机号记录会员信息的，当我刚说出188的时候，收银小姐姐打断我说，只能通过多点扫描...
+    </p>
+
+    <p style="text-align: center">
+      <img
+        src="https://github.com/wangyu-0426/blablabla/blob/main/images/20210523-4.jpg?raw=true"
+      />
+    </p>
+
+    <p>
+      其实什么积分不积分的，我从来没兑换过，此刻的我只想知道这败家的会员码到底在哪儿，求知欲成功占领我的大脑，开始上头了！因为刚才说手机号的时候我已经点开了支付宝，就没成想还有这么一出儿...
+      手忙脚乱重新打开多点，真没让我失望，先是几秒白屏，接下来启动画面，启动广告，首屏广告，一样儿不少，按说这会儿你应该在后台保持现场啊，从头来受得了么...
+      我已经不在乎后边排队的人看傻子一样的眼神了，还得小心翼翼的问收银小姐姐，会员码在哪儿啊...
+      小姐姐估计也是见惯了市面，从她的话语中并没有听出太多不耐烦，她说”晃一下“，我听成了”滑一下“，正犹豫左滑还是右滑的时候，小姐姐又说”晃一晃“，我这才反应过来，她的意思是让我”摇一摇“！我心里这个气呀，这特么让我上哪儿猜去！！！设计这个软件的人可真是太有正事儿了，真说不清是有情趣还是缺心眼儿...
+    </p>
+
+    <p style="text-align: center">
+      <img
+        src="https://github.com/wangyu-0426/blablabla/blob/main/images/20210523-5.jpg?raw=true"
+      />
+    </p>
+
+    <p>
+      付完款稍微冷静一下，我又开始了探索。因为我知道，“摇一摇”绝对不可能是打开会员码的常规方式，一定有一个正常的路径我没找到，于是我开始在多点首页重新搜索，上下滑动几次之后，偶然发现下拉刷新的后边竟然藏有三个快捷入口！这么隐蔽的设计真的不是在开玩笑吗？我是在寻宝吗？真感觉跟闹着玩儿似的...　
+    </p>
+
+    <p style="text-align: center">
+      <img
+        src="https://github.com/wangyu-0426/blablabla/blob/main/images/20210523-6.jpg?raw=true"
+      />
+    </p>
+
+    <p>
+      终于，在“我的”->“我的钱包”找到了常规入口，仔细看右上角，居然写着“超方便&quot;，真尼玛方便啊...
+    </p>
+
+    <p>
+      好了，故事到这儿就讲完了，下边就顺着今天这个事儿，随便聊聊想到的几个关于用户体验的点
+    </p>
+
+    <p><strong>1、使用情境</strong></p>
+
+    <p>
+      人们使用移动设备，通常是在不稳定的环境中，比如走路，坐地铁，甚至开车。晃动、嘈杂、单手操作、各种干扰都成了常态，人们不可能像在办公桌前一样四平八稳的仔细阅读软件里的内容，所以就要求很多软件要将功能流程尽量简化，同时要求界面更加清晰易识别，让用户在不稳定的环境中依然能够顺畅地完成相应操作。
+    </p>
+
+    <p><strong>2、用户体验三要素</strong></p>
+
+    <p>
+      也不知道这是谁归纳的，我更愿意称之为用户体验三原则，总结起来就是：别让我等、别让我烦、别让我想。好巧不巧，这三条
+      <code>多点</code> 都占了！
+    </p>
+
+    <p>
+      首先是<strong>别让我等</strong>，说的就是响应速度，点完老半天没反应，换谁也受不了，所以优化首屏的打开速度永远是重中之重，本来已经度秒如年了，你这儿还慢慢腾腾的，里边的东西再好，第一印象就已经认定是垃圾了。
+    </p>
+
+    <p>
+      之后是<strong>别让我烦</strong>，好容易首页显示出来了，刚要仔细看，这时候弹出一广告，找半天不知道从哪儿关，好容易点掉关了，又来个弹窗问你是否要切换到某某门店...
+      这种强提示往往会打断用户的思绪，持续的干扰会严重影响用户完成目标任务。
+    </p>
+
+    <p>
+      最后是<strong>别让我想</strong>，就是之前常说的”Don&#39;t make me
+      think“，对于功能性的软件来说，用户希望所有的操作都是明确的，不存在疑问的。当用户开始不确定点击之后会出现什么的时候，用户就会开始积累负面情绪。尤其软件的放错和防呆做的不好，又不能自由进退的时候，用户就会将负面情绪转化成愤怒了。
+    </p>
+
+    <p><strong>3、引导和提示</strong></p>
+
+    <p>
+      如果一款软件不能很好地自我解释，那么<code>适时的</code>提示和<code>恰当的</code>引导也是必要的。
+    </p>
+
+    <p>
+      前段时间一个相识多年的老兄发我一份App的使用说明书，让我帮忙看看，我第一反应就是，这东西是写给谁的，真有必要吗？通常来说，好的软件是不需要自我解释的，用户能够理解其中的隐喻，交互方式能够符合人的基本认知和行为习惯，这才是好的交互状态，你说谁用个App还会翻说明书呢。（后来我推测这说明书大概是给销售人员培训用的，但是内容也不太合适，涉及开发和技术的部分肯定是不必要的）
+    </p>
+
+    <p>只有特定的行业软件或特殊的B端产品才需要用户手册。</p>
+
+    <p>
+      突然想起之前苏老师提到的一个手机导航的案例，说正在高速上开车，导航软件突然弹出个对话框，问你要不要充个会员，这不作死呢么...
+      于是立刻找个服务区停车，把软件赶紧卸掉...
+      前些天一个关于自动驾驶的演讲也提到类似的状况，就是想强调一下软件的设计一定要符合使用情境，引导和提示也要出现在合适的时机（当然了，自动驾驶的软件系统要复杂的多，要考虑哪些特殊情况下要替驾驶者做出判断和决定，又扯远了...）
+    </p>
+
+    <p>后记：</p>
+
+    <blockquote>
+      <p><em>用户体验是个筐，什么都能往里装</em></p>
+    </blockquote>
+
+    <p>
+      软件归根到底是给人用的，要从真实的用户角度去思考、去设计。（当然了，故意逆向利用交互原则去割韭菜，那就是另一回事儿了...）
+    </p>
+  </body>
+</html>
